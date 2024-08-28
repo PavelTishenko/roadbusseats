@@ -13,11 +13,12 @@ const SeatsScreen = () => {
     name,
     firstFlorSeats,
     secondFlorSeats,
+    top,
     handleSeatsItemPress,
   } = useSeatsScreen();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: top }]}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Seat availability</Text>
       </View>

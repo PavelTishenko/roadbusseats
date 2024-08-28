@@ -8,13 +8,13 @@ import { useRouteScreen } from './useRouteScreen.hook';
 import { Routes } from '@/utils/simulateFetchUtil';
 
 const RoutesScreen = () => {
-  const { routesData, isLoading, handleCardPress } = useRouteScreen();
+  const { routesData, isLoading, top, handleCardPress } = useRouteScreen();
 
   const renderItem = ({ item, index }: { item: Routes; index: number }) => (
     <RoutesCardItem item={item} index={index} onPress={handleCardPress} />
   );
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: top }]}>
       <View style={styles.titleHolder}>
         <Text style={styles.title}>Select your route</Text>
       </View>

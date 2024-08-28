@@ -7,6 +7,7 @@ import {
 
 import { TabsStackParamList } from '@/navigation/types/navigation';
 import { Screens } from '@/constants/screens';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const useSeatsScreen = () => {
   const {
@@ -16,6 +17,7 @@ const useSeatsScreen = () => {
   } = useRoute<RouteProp<TabsStackParamList, Screens.SeatsScreen>>();
   const navigation =
     useNavigation<NavigationProp<TabsStackParamList, Screens.MapScreen>>();
+  const { top } = useSafeAreaInsets();
   const handleSeatsItemPress = () => {
     navigation.navigate(Screens.MapScreen, { speedRate: speedRate });
   };
@@ -26,6 +28,7 @@ const useSeatsScreen = () => {
     firstFlorSeats,
     secondFlorSeats,
     speedRate,
+    top,
     handleSeatsItemPress,
   };
 };

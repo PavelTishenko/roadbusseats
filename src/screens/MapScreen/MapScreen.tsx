@@ -6,28 +6,37 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import Geolocation, {
-  GeolocationResponse,
-} from '@react-native-community/geolocation';
+import MapView, { PROVIDER_DEFAULT, PROVIDER_GOOGLE } from 'react-native-maps';
+import Geolocation from '@react-native-community/geolocation';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const MapScreen = () => {
+  const { top } = useSafeAreaInsets();
   const initLocation = {
     latitude: 37.771707,
     longitude: 37.771707,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0721,
-  }
-  const [location, setLocation] = useState<{latitude: number; longitude: number; latitudeDelta: number; longitudeDelta: number}>(initLocation);
+  };
+  const [location, setLocation] = useState<{
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  }>(initLocation);
   const getUsersCurrentLocation = useCallback(() => {
-    Geolocation.getCurrentPosition(position => {
-      setLocation({
-        latitude:position.coords.latitude,
-        longitude: position.coords.longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0721,
-      });
-    }, () => {}, {enableHighAccuracy: true});
+    Geolocation.getCurrentPosition(
+      position => {
+        setLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0721,
+        });
+      },
+      () => {},
+      { enableHighAccuracy: true },
+    );
   }, []);
 
   const requestLocationPermission = useCallback(async () => {
@@ -53,9 +62,9 @@ const MapScreen = () => {
   }, [requestLocationPermission]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { marginTop: top }]}>
       <MapView
-        provider={PROVIDER_GOOGLE}
+        provider={Platform.OS === 'ios' ? PROVIDER_DEFAULT : PROVIDER_GOOGLE}
         region={location}
         showsUserLocation
         followsUserLocation

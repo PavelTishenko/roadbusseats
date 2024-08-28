@@ -1,11 +1,15 @@
-import AppNavigator from '@/navigation/AppNavigator';
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  initialWindowMetrics,
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
+
+import AppNavigator from '@/navigation/AppNavigator';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       <NavigationContainer>
         <AppNavigator />
       </NavigationContainer>

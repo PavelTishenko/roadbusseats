@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MainStackParamList } from '../types/navigation';
 import { Screens } from '@/constants/screens';
 import RoutesScreen from '@/screens/RoutesScreen';
-import TabsNavigator from '../TabsNavigator/TabsNavigator';
+import TabsNavigator from '../TabsNavigator';
 
 const MainStack = createNativeStackNavigator<MainStackParamList>();
 
