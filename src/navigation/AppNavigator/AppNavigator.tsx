@@ -10,8 +10,14 @@ const MainStack = createNativeStackNavigator<MainStackParamList>();
 
 const AppNavigator = () => {
   return (
-    <MainStack.Navigator initialRouteName={Screens.RoutesScreens}>
-      <MainStack.Screen name={Screens.RoutesScreens} component={RoutesScreen} />
+    <MainStack.Navigator
+      initialRouteName={Screens.RoutesScreens}
+      screenOptions={{ headerShown: false }}>
+      <MainStack.Screen
+        name={Screens.RoutesScreens}
+        component={RoutesScreen}
+        options={{ headerShown: false }}
+      />
       <MainStack.Screen name={Screens.Tabs} component={TabsNavigator} />
     </MainStack.Navigator>
   );

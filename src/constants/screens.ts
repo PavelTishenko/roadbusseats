@@ -3,4 +3,5 @@ export const enum Screens {
   Tabs = 'Tabs',
   SeatsScreen = 'SeatsScreen',
   MapScreen = 'MapScreen',
+  Info = 'Info',
 }
