@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import List from '@/components/List';
 import RoutesCardItem from './RoutesCardItem';
 import { colors } from '@/constants/styles';
-import { useRouteScreen } from './useRouteScreen.hook';
+import { useRouteScreen } from './RouteScreen.hook';
 import { Routes } from '@/utils/simulateFetchUtil';
 
 const RoutesScreen = () => {
