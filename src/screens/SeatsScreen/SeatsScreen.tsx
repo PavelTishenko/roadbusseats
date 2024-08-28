@@ -33,7 +33,7 @@ const SeatsScreen = () => {
           </View>
           <View style={styles.statusRow}>
             <Text>Available</Text>
-            <View style={styles.item} />
+            <View style={[styles.item, styles.flx0]} />
           </View>
         </View>
       </View>
@@ -135,21 +135,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 25,
   },
-  // seat: {
-  //   width: 50,
-  //   height: 50,
-  //   flex: 0,
-  //   marginBottom: 15,
-  //   marginRight: 20,
-  // },
   reservedItem: {
-    backgroundColor: '#ABCBFF',
+    backgroundColor: colors.selected,
     flex: 0,
   },
-  // seatText: {
-  //   fontWeight: 'bold',
-  // },
   listContainer: {
     padding: 25,
+  },
+  flx0: {
+    flex: 0,
   },
 });

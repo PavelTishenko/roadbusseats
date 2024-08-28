@@ -10,5 +10,5 @@ export type MainStackParamList = {
 
 export type TabsStackParamList = {
   [Screens.SeatsScreen]: { route: Routes };
-  [Screens.MapScreen]: undefined;
+  [Screens.MapScreen]: { speedRate: number };
 };

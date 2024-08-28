@@ -17,7 +17,7 @@ const useSeatsScreen = () => {
   const navigation =
     useNavigation<NavigationProp<TabsStackParamList, Screens.MapScreen>>();
   const handleSeatsItemPress = () => {
-    navigation.navigate(Screens.MapScreen);
+    navigation.navigate(Screens.MapScreen, { speedRate: speedRate });
   };
 
   return {
