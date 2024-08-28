@@ -9,6 +9,7 @@ import MapScreen from '@/screens/MapScreen';
 import { SvgXml } from 'react-native-svg';
 import { infoIcon, mapIcon, trainIcon } from '@/assets/svg';
 import { RouteProp } from '@react-navigation/native';
+import InfoScreen from '@/screens/InfoScreen/InfoScreen';
 
 const Tab = createBottomTabNavigator<TabsStackParamList>();
 
@@ -19,7 +20,7 @@ const screenOptions = (props: {
   tabBarStyle: { height: 81 },
   tabBarIcon: () => {
     if (props.route.name === Screens.SeatsScreen) {
-      return <SvgXml xml={trainIcon} fill={'red'} />;
+      return <SvgXml xml={trainIcon} />;
     }
 
     if (props.route.name === Screens.MapScreen) {
@@ -46,7 +47,7 @@ const TabsNavigator = () => {
         component={MapScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen name={Screens.Info} component={MapScreen} />
+      <Tab.Screen name={Screens.Info} component={InfoScreen} />
     </Tab.Navigator>
   );
 };

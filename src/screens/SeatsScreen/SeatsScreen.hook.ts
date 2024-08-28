@@ -8,6 +8,7 @@ import {
 import { TabsStackParamList } from '@/navigation/types/navigation';
 import { Screens } from '@/constants/screens';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SeatsAvailability } from '@/utils/simulateFetchUtil';
 
 const useSeatsScreen = () => {
   const {
@@ -18,8 +19,10 @@ const useSeatsScreen = () => {
   const navigation =
     useNavigation<NavigationProp<TabsStackParamList, Screens.MapScreen>>();
   const { top } = useSafeAreaInsets();
-  const handleSeatsItemPress = () => {
-    navigation.navigate(Screens.MapScreen, { speedRate: speedRate });
+  const handleSeatsItemPress = (available: string) => {
+    if (available !== SeatsAvailability.free) return;
+
+    navigation.navigate(Screens.MapScreen, { route, name, speedRate });
   };
 
   return {

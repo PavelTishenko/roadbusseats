@@ -11,7 +11,7 @@ const SeatsItem = ({
 }: {
   item: string;
   index: number;
-  onPress: () => void;
+  onPress: (available: string) => void;
 }) => {
   return (
     <Pressable
@@ -20,7 +20,7 @@ const SeatsItem = ({
         styles.seat,
         item === SeatsAvailability.reserved && styles.selectedItem,
       ]}
-      onPress={onPress}>
+      onPress={() => onPress(item)}>
       <Text style={styles.seatText}>{index + 1}</Text>
     </Pressable>
   );
