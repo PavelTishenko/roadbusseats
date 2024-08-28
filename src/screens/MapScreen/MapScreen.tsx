@@ -9,9 +9,14 @@ import { useMapScreen } from './MapScreens.hook';
 
 const MapScreen = () => {
   const { top, height, name, route, speedRate, location } = useMapScreen();
+
   return (
     <View style={[styles.container, { marginTop: top }]}>
-      <View style={[styles.header, { marginTop: top + 30 }]}>
+      <View
+        style={[
+          styles.header,
+          { marginTop: Platform.OS === 'android' ? top + 30 : top },
+        ]}>
         <View>
           <Text style={styles.headerText}>Location</Text>
         </View>
